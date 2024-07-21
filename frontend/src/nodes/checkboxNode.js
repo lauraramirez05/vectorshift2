@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Position } from 'reactflow';
 import { NodeTemplate } from '../NodeTemplate';
 import { FormField } from '../FormField';
+import { IoIosCheckbox, IoIosAddCircle } from 'react-icons/io';
 
 export const CheckboxNode = ({ id, data }) => {
   const [currNumberValue, setCurrNumberValue] = useState(data?.value || 1);
@@ -45,6 +46,7 @@ export const CheckboxNode = ({ id, data }) => {
     <NodeTemplate
       id={id}
       name='Checkbox'
+      icon={<IoIosCheckbox />}
       handles={[
         { type: 'source', position: Position.Right, id: `${id}-value` },
       ]}
@@ -65,16 +67,25 @@ export const CheckboxNode = ({ id, data }) => {
           type='checkbox'
           checked={checkbox.checked}
           onChange={handleCheckboxChange(checkbox.id)}
+          style={{ border: 'none', padding: '0px' }}
         />
       ))}
-      <div>
-        <p>Add new checkbox</p>
+      <div
+        style={{
+          display: 'flex',
+          border: '1px solid black',
+          borderRadius: '5px',
+        }}
+      >
         <FormField
+          label='Add New Checkbox'
           type='text'
           value={newCheckboxLabel}
           onChange={handleNewCheckboxLabelChange}
+          style={{ border: 'none', marginBottom: '0' }}
         />
-        <button onClick={addCheckBox}>+</button>
+        <IoIosAddCircle onClick={addCheckBox} style={{ alignSelf: 'center' }} />
+        {/* <button style={{ height: '20px' }}>+</button> */}
       </div>
     </NodeTemplate>
   );

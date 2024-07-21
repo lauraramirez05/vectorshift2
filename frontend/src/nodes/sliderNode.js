@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Position } from 'reactflow';
 import { NodeTemplate } from '../NodeTemplate';
 import { FormField } from '../FormField';
+import { CiSliderHorizontal } from 'react-icons/ci';
 
 export const SliderNode = ({ id, data }) => {
   const [brightness, setBrightness] = useState(data?.brightness || 50);
@@ -17,12 +18,13 @@ export const SliderNode = ({ id, data }) => {
     <NodeTemplate
       id={id}
       name='Image Filter'
+      icon={<CiSliderHorizontal />}
       handles={[
         { type: 'target', position: Position.Left, id: `${id}-input` },
         { type: 'source', position: Position.Right, id: `${id}-output` },
       ]}
     >
-      <div>
+      <div style={{ position: 'relative' }}>
         <FormField
           label='Brightness'
           type='range'
@@ -32,9 +34,18 @@ export const SliderNode = ({ id, data }) => {
           step={1}
           onChange={(e) => handleSliderChange(e, setBrightness)}
         />
-        {brightness}
+        <span
+          style={{
+            position: 'absolute',
+            top: '5px',
+            right: '10px',
+            fontSize: '14px',
+          }}
+        >
+          {brightness}
+        </span>
       </div>
-      <div>
+      <div style={{ position: 'relative' }}>
         <FormField
           label='Contrast'
           type='range'
@@ -44,7 +55,16 @@ export const SliderNode = ({ id, data }) => {
           step={1}
           onChange={(e) => setContrast(Number(e.target.value))}
         />
-        {contrast}
+        <span
+          style={{
+            position: 'absolute',
+            top: '5px',
+            right: '10px',
+            fontSize: '14px',
+          }}
+        >
+          {contrast}
+        </span>
       </div>
     </NodeTemplate>
   );

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Handle, Position } from 'reactflow';
 import { NodeTemplate } from '../NodeTemplate';
 import { FormField } from '../FormField';
+import { MdOutlineOutput } from 'react-icons/md';
 
 export const OutputNode = ({ id, data }) => {
   console.log(data);
@@ -24,6 +25,7 @@ export const OutputNode = ({ id, data }) => {
     <NodeTemplate
       id={id}
       name='Output'
+      icon={<MdOutlineOutput />}
       handles={[{ type: 'target', position: Position.Left, id: `${id}-value` }]}
     >
       <FormField

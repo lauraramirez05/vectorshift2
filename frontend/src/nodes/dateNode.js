@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { NodeTemplate } from '../NodeTemplate';
 import { Position } from 'reactflow';
 import { FormField } from '../FormField';
+import { CiCalendarDate } from 'react-icons/ci';
 
 export const DateNode = ({ id, data }) => {
   const now = new Date();
   const todayDate = now.toISOString().split('T')[0]; // YYYY-MM-DD
   const todayTime = now.toTimeString().split(' ')[0].substring(0, 5); // HH:MM
-  console.log(todayDate, todayTime);
+
   const [startDate, setStartDate] = useState(data?.startDate || todayDate);
   const [startTime, setStartTime] = useState(data?.startTime || todayTime);
   const [endDate, setEndDate] = useState(data?.endDate || '');
@@ -21,6 +22,7 @@ export const DateNode = ({ id, data }) => {
     <NodeTemplate
       id={id}
       name='Pick Date'
+      icon={<CiCalendarDate />}
       handles={[
         { type: 'target', position: Position.Left, id: `${id}-input` },
         { type: 'source', position: Position.Right, id: `${id}-output` },

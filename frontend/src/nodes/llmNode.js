@@ -2,12 +2,14 @@
 
 import { Handle, Position } from 'reactflow';
 import { NodeTemplate } from '../NodeTemplate';
+import { LuBrainCircuit } from 'react-icons/lu';
 
 export const LLMNode = ({ id, data }) => {
   return (
     <NodeTemplate
       id={id}
       name='LLM'
+      icon={<LuBrainCircuit />}
       handles={[
         {
           type: 'target',
@@ -29,7 +31,7 @@ export const LLMNode = ({ id, data }) => {
       ]}
     >
       <div>
-        <span>This is a LLM.</span>
+        <span style={{ fontSize: '14px' }}>This is a LLM.</span>
       </div>
     </NodeTemplate>
   );

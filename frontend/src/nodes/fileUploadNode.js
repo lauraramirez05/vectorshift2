@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { NodeTemplate } from '../NodeTemplate';
 import { Position } from 'reactflow';
 import { FormField } from '../FormField';
+import { MdOutlineFileUpload } from 'react-icons/md';
 
 export const FileUploadNode = ({ id, data }) => {
+  console.log(data);
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -14,7 +16,8 @@ export const FileUploadNode = ({ id, data }) => {
   return (
     <NodeTemplate
       id={id}
-      name=''
+      name='Upload File'
+      icon={<MdOutlineFileUpload />}
       handles={[
         { type: 'target', position: Position.Left, id: `${id}-input` },
         { type: 'source', position: Position.Right, id: `${id}-output` },

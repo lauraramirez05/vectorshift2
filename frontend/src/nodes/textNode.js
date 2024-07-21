@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Position } from 'reactflow';
 import { NodeTemplate } from '../NodeTemplate';
 import { FormField } from '../FormField';
+import { CiTextAlignJustify } from 'react-icons/ci';
 
 export const TextNode = ({ id, data }) => {
   const [currText, setCurrText] = useState(data?.text || '{{input}}');
@@ -52,7 +53,12 @@ export const TextNode = ({ id, data }) => {
   };
 
   return (
-    <NodeTemplate id={id} name='Text' handles={handles}>
+    <NodeTemplate
+      id={id}
+      name='Text'
+      icon={<CiTextAlignJustify />}
+      handles={handles}
+    >
       <FormField
         id={id}
         label='Text:'

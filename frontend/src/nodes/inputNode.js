@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Handle, Position } from 'reactflow';
 import { NodeTemplate } from '../NodeTemplate';
 import { FormField } from '../FormField';
+import { MdInput } from 'react-icons/md';
 
 export const InputNode = ({ id, data }) => {
   const [currName, setCurrName] = useState(
@@ -24,6 +25,7 @@ export const InputNode = ({ id, data }) => {
     <NodeTemplate
       id={id}
       name='Input'
+      icon={<MdInput />}
       handles={[
         { type: 'source', position: Position.Right, id: `${id}-value` },
       ]}

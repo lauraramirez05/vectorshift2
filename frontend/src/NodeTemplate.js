@@ -1,7 +1,14 @@
 import React, { useEffect } from 'react';
-import { Handle, Position, useUpdateNodeInternals } from 'reactflow';
+import { Handle, useUpdateNodeInternals } from 'reactflow';
 
-export const NodeTemplate = ({ id, name, handles = [], children }) => {
+export const NodeTemplate = ({
+  id,
+  name,
+  icon,
+  handles = [],
+  style,
+  children,
+}) => {
   const updateNodeInternals = useUpdateNodeInternals();
 
   useEffect(() => {
@@ -11,10 +18,12 @@ export const NodeTemplate = ({ id, name, handles = [], children }) => {
   return (
     <div
       style={{
-        width: 200,
+        width: 230,
         height: 'fit-content',
         border: '1px solid black',
-        padding: '20px',
+        borderRadius: '8px',
+        ...style,
+        // padding: '5px 20px 20px 20px',
       }}
     >
       {handles.map((handle, index) => (
@@ -23,7 +32,7 @@ export const NodeTemplate = ({ id, name, handles = [], children }) => {
             type={handle.type}
             position={handle.position}
             id={handle.id}
-            style={handle.style}
+            style={{ backgroundColor: '#ce94e8', ...handle.style }}
             name={handle.name}
           />
           {handle.name && (
@@ -40,10 +49,20 @@ export const NodeTemplate = ({ id, name, handles = [], children }) => {
           )}
         </div>
       ))}
-      <div>
-        <span>{name}</span>
+      <div
+        style={{
+          borderBottom: '1px black solid',
+          padding: '5px',
+          fontSize: '14px',
+          fontWeight: '700',
+        }}
+      >
+        <div style={{ display: 'flex', gap: '5px' }}>
+          {icon}
+          {name}
+        </div>
       </div>
-      <div>{children}</div>
+      <div style={{ padding: '15px 10px 10px 10px' }}>{children}</div>
     </div>
   );
 };
