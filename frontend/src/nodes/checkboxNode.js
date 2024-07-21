@@ -73,7 +73,7 @@ export const CheckboxNode = ({ id, data }) => {
       <div
         style={{
           display: 'flex',
-          border: '1px solid black',
+          border: '0.5px solid black',
           borderRadius: '5px',
         }}
       >
@@ -85,7 +85,6 @@ export const CheckboxNode = ({ id, data }) => {
           style={{ border: 'none', marginBottom: '0' }}
         />
         <IoIosAddCircle onClick={addCheckBox} style={{ alignSelf: 'center' }} />
-        {/* <button style={{ height: '20px' }}>+</button> */}
       </div>
     </NodeTemplate>
   );

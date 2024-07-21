@@ -40,16 +40,12 @@ export const PipelineToolbar = () => {
           label='File Upload'
           icon={<MdOutlineFileUpload />}
         />
+
         <DraggableNode
-          type='slider'
-          label='Slider'
-          icon={<CiSliderHorizontal />}
-        />
-        {/* <DraggableNode
           type='multiSelect'
-          label='Multi-Select Dropdown'
+          label='MultiSelect'
           icon={<BiSelectMultiple />}
-        /> */}
+        />
         <DraggableNode
           type='customDate'
           label='Date'

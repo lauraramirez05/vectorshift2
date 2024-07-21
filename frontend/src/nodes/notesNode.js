@@ -10,13 +10,22 @@ export const NotesNode = ({ id, data }) => {
 
     <div
       style={{
-        border: '1px solid black',
         borderRadius: '8px',
         padding: '5px',
         width: '220px',
+        backgroundColor: 'rgb(225 196 238 / 50%);',
+        boxShadow: 'rgb(198 167 198) 1px 3px 12px 0px',
       }}
     >
-      <span style={{ fontSize: '14px', fontWeight: 700 }}>Note</span>
+      <span
+        style={{
+          fontSize: '14px',
+          fontWeight: 700,
+          color: 'rgba(60, 21, 115, 1)',
+        }}
+      >
+        Note
+      </span>
       <FormField
         id={id}
         label=''

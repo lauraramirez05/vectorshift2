@@ -14,7 +14,6 @@ import { TextNode } from './nodes/textNode';
 import 'reactflow/dist/style.css';
 import { CheckboxNode } from './nodes/checkboxNode';
 import { FileUploadNode } from './nodes/fileUploadNode';
-import { SliderNode } from './nodes/sliderNode';
 import { MultiSelectNode } from './nodes/multiSelectNode';
 import { DateNode } from './nodes/dateNode';
 import { NotesNode } from './nodes/notesNode';
@@ -28,7 +27,7 @@ const nodeTypes = {
   text: TextNode,
   checkbox: CheckboxNode,
   fileUpload: FileUploadNode,
-  slider: SliderNode,
+  select: MultiSelectNode,
   multiSelect: MultiSelectNode,
   customDate: DateNode,
   notes: NotesNode,

@@ -50,7 +50,7 @@ export const FormField = ({
         display: 'flex',
         alignItems: 'center',
         fontSize: '1rem',
-        border: '1px, solid black',
+        border: '0.5px, solid grey',
         padding: '5px',
         borderRadius: '5px',
         marginBottom: '10px',
@@ -103,6 +103,7 @@ export const FormField = ({
                 width: '97%',
                 border: 'none',
                 outline: 'none',
+                backgroundColor: 'transparent',
               }}
             />
           ) : (
@@ -118,6 +119,7 @@ export const FormField = ({
               style={{
                 border: 'none',
                 outline: 'none',
+                backgroundColor: 'transparent',
               }}
             />
           )}
