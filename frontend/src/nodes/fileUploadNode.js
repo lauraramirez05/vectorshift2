@@ -5,8 +5,7 @@ import { FormField } from '../FormField';
 import { MdOutlineFileUpload } from 'react-icons/md';
 
 export const FileUploadNode = ({ id, data }) => {
-  console.log(data);
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState(data?.file || null);
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];

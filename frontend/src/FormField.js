@@ -2,11 +2,11 @@ import React, { useRef, useEffect } from 'react';
 import { Position } from 'reactflow';
 
 export const FormField = ({
-  id,
   label,
   type,
   value,
   onChange,
+  onKeyDown,
   options = [],
   checked = false,
   accept = '',
@@ -16,18 +16,8 @@ export const FormField = ({
   rows = 0,
   multiple = false,
   style = {},
-  setHandles,
 }) => {
   const textAreaRef = useRef(null);
-
-  console.log('options', options);
-
-  useEffect(() => {
-    if (type === 'textarea' && textAreaRef.current) {
-      // Adjust the height initially
-      resizeTextArea();
-    }
-  }, [value]);
 
   const resizeTextArea = () => {
     const textArea = textAreaRef.current;
@@ -96,14 +86,15 @@ export const FormField = ({
               value={value}
               onChange={onChange}
               onInput={handleInput}
+              onKeyDown={onKeyDown}
               rows={rows}
               style={{
                 resize: 'none',
                 height: '15px',
                 width: '97%',
-                border: 'none',
                 outline: 'none',
                 backgroundColor: 'transparent',
+                border: 'none',
               }}
             />
           ) : (

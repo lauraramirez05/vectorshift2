@@ -7,7 +7,6 @@ import { FormField } from '../FormField';
 import { MdOutlineOutput } from 'react-icons/md';
 
 export const OutputNode = ({ id, data }) => {
-  console.log(data);
   const [currName, setCurrName] = useState(
     data?.outputName || id.replace('customOutput-', 'output_')
   );
@@ -39,7 +38,7 @@ export const OutputNode = ({ id, data }) => {
         type='select'
         value={outputType}
         onChange={handleTypeChange}
-        options={[{ value: 'Text', value: 'Image' }]}
+        options={[{ value: 'Text' }, { value: 'Image' }]}
       />
     </NodeTemplate>
   );

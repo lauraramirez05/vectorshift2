@@ -42,6 +42,13 @@ export const CheckboxNode = ({ id, data }) => {
     setNewCheckboxLabel(e.target.value);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent default action (e.g., form submission)
+      addCheckBox();
+    }
+  };
+
   return (
     <NodeTemplate
       id={id}
@@ -56,7 +63,7 @@ export const CheckboxNode = ({ id, data }) => {
         type='number'
         value={currNumberValue}
         onChange={handleNumberValueChange}
-        min={0}
+        min={1}
         step={1}
       />
 
@@ -82,6 +89,7 @@ export const CheckboxNode = ({ id, data }) => {
           type='text'
           value={newCheckboxLabel}
           onChange={handleNewCheckboxLabelChange}
+          onKeyDown={handleKeyDown}
           style={{ border: 'none', marginBottom: '0' }}
         />
         <IoIosAddCircle onClick={addCheckBox} style={{ alignSelf: 'center' }} />

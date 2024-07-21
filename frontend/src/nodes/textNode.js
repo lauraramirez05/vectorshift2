@@ -8,12 +8,14 @@ import { CiTextAlignJustify } from 'react-icons/ci';
 
 export const TextNode = ({ id, data }) => {
   const [currText, setCurrText] = useState(data?.text || '{{input}}');
-  const [handles, setHandles] = useState([
-    { type: 'source', position: Position.Right, id: `${id}-output` },
-  ]);
+  const [handles, setHandles] = useState(
+    data?.handles || [
+      { type: 'source', position: Position.Right, id: `${id}-output` },
+    ]
+  );
 
   const handleTextChange = (e) => {
-    const offsetHeight = e.target.offsetHeight + 30;
+    const offsetHeight = e.target.offsetHeight + 20;
     setCurrText(e.target.value);
 
     const pattern = /\{\{(\w+)\}\}/g;

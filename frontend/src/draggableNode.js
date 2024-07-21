@@ -23,7 +23,6 @@ export const DraggableNode = ({ type, label, icon }) => {
         display: 'flex',
         alignItems: 'center',
         borderRadius: '8px',
-        // backgroundColor: '#1C2536',
         background:
           'linear-gradient(to bottom left, rgba(29, 23, 74, 1), rgba(60, 21, 115, 1))',
         justifyContent: 'center',
@@ -41,7 +40,6 @@ export const DraggableNode = ({ type, label, icon }) => {
           alignContent: 'center',
           textAlign: 'center',
           width: 'fit-content',
-          // padding: '1rem',
         }}
       >
         <div style={{ alignSelf: 'center', fontSize: '1.7rem' }}>{icon}</div>

@@ -7,7 +7,6 @@ import { IoIosClose } from 'react-icons/io';
 
 export const MultiSelectNode = ({ id, data }) => {
   const [selectedOptions, setSelectedOptions] = useState(data?.selected || []);
-  const [currSelections, setCurrSelections] = useState([]);
 
   const options = [
     { value: 'option1', label: 'Option 1', checked: false },
@@ -24,23 +23,19 @@ export const MultiSelectNode = ({ id, data }) => {
     setSelectedOptions(values);
 
     const updatedSelections = values.reduce((acc, value) => {
-      if (currSelections.includes(value)) {
+      if (selectedOptions.includes(value)) {
         return acc.filter((item) => item !== value);
       } else {
         return [...acc, value];
       }
-    }, currSelections);
+    }, selectedOptions);
 
-    setCurrSelections(updatedSelections);
-    console.log('current', updatedSelections);
+    setSelectedOptions(updatedSelections);
   };
 
   const handleRemoveSelection = (value) => {
     setSelectedOptions((prevOptions) =>
       prevOptions.filter((option) => option !== value)
-    );
-    setCurrSelections((prevSelections) =>
-      prevSelections.filter((item) => item !== value)
     );
   };
 
@@ -62,7 +57,7 @@ export const MultiSelectNode = ({ id, data }) => {
           gap: '8px',
         }}
       >
-        {currSelections.map((selection) => (
+        {selectedOptions.map((selection) => (
           <div
             key={selection}
             style={{

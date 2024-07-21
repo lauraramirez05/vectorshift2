@@ -2,11 +2,7 @@
 import { DraggableNode } from './draggableNode';
 import { MdInput, MdOutlineOutput, MdOutlineFileUpload } from 'react-icons/md';
 import { LuBrainCircuit } from 'react-icons/lu';
-import {
-  CiTextAlignJustify,
-  CiSliderHorizontal,
-  CiCalendarDate,
-} from 'react-icons/ci';
+import { CiTextAlignJustify, CiCalendarDate } from 'react-icons/ci';
 import { IoIosCheckboxOutline } from 'react-icons/io';
 import { BiSelectMultiple } from 'react-icons/bi';
 import { FaRegNoteSticky } from 'react-icons/fa6';

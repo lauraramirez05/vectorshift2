@@ -21,16 +21,13 @@ class PipelineData(BaseModel):
     nodes: list
     edges: list
 
-# @app.post('/pipelines/parse')
-# def parse_pipeline(pipeline: str = Form(...)):
-
-#     return {'status': 'parsed'}
 
 @app.post('/pipelines/parse')
 def parse_pipeline(pipeline: PipelineData):
     num_nodes = len(pipeline.nodes)
     num_edges = len(pipeline.edges)
 
+    #Logic to determine if it is a DAG
     degrees = {}
 
     stack = []
@@ -60,9 +57,6 @@ def parse_pipeline(pipeline: PipelineData):
                     stack.append(edge["target"])
 
     dag = True
-    print('After while loop')
-    print('degrees', degrees)
-    print('stack', stack)
 
     #loop through
     for connection in degrees.values():

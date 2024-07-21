@@ -27,7 +27,6 @@ export const NotesNode = ({ id, data }) => {
         Note
       </span>
       <FormField
-        id={id}
         label=''
         type='textarea'
         value={notesContent}
